@@ -1,0 +1,41 @@
+{
+  "task_id": "web-dev-showcase-photographer-portfolio",
+  "title": "摄影师作品集 Showcase",
+  "category_tags": [
+    "展示型页面：摄影作品集/Showcase"
+  ],
+  "arena_tags": [
+    "ui",
+    "content",
+    "frontend"
+  ],
+  "prompt_type": "前端",
+  "required_tools": [
+    "browser",
+    "playwright",
+    "screenshot"
+  ],
+  "difficulty": "high",
+  "annotator": "gaobo",
+  "reviewer": "",
+  "status": "draft",
+  "version": "0.1.0",
+  "created_at": "2026-07-12T03:32:53.000000Z",
+  "updated_at": "2026-07-12T09:41:13.000000Z",
+  "difficulty_detail": {
+    "tier": "high",
+    "estimated_solve_time_hours": "4-8",
+    "sota_solvable": true,
+    "trivial": false
+  },
+  "tech_stack": {
+    "framework": "React",
+    "language": "TypeScript",
+    "bundler": "Vite",
+    "routing": "客户端路由，5 个路由 + 1 个全局共享组件"
+  },
+  "data_sources": {
+    "assets_dir": "assets/ —— 设计参考图、字体规范（FONTS.md）、自托管字体文件（assets/fonts/）",
+    "mock_data_dir": "mock-data/ —— 真实照片文件（mock-data/photos/<category>/）与结构化内容元数据（mock-data/photos.json）；视为权威业务数据，agent 不得伪造或篡改。"
+  }
+}

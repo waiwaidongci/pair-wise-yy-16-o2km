@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+*.log
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+trajectory.jsonl
+trajectory.md.jsonl

@@ -1,0 +1,292 @@
+{
+  "task_id": "web-dev-showcase-photographer-portfolio",
+  "version": "1.0",
+  "scoring": {
+    "total_points": 100,
+    "achieved_points": 91.5,
+    "pass_threshold": 80,
+    "result": "pass"
+  },
+  "sections": [
+    {
+      "id": "structural_baseline",
+      "title": "结构基线",
+      "points": 15,
+      "achieved_points": 10,
+      "criteria": [
+        {
+          "id": "routes-render",
+          "criterion": "5 个路由（/、/work、/work/:seriesId、/about、/contact）均能正常渲染出各自的核心内容，且导航过程中控制台无 error。",
+          "weight": 5,
+          "score": 5,
+          "score_notes": "3 项测试全部通过：/、/work、/work/:seriesId、/about、/contact 均正常渲染，控制台无 error。",
+          "constraint_ref": "task.md#page-structure",
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "依次访问每个路由，断言页面出现该路由特有的标志性元素，且导航期间 console.error 记录数为 0。"
+          },
+          "evidence_required": "tests/e2e/structural-baseline.spec.ts 中该用例的 Playwright 测试报告（各路由访问后的关键元素断言结果 + 导航期间 console.error 计数）。"
+        },
+        {
+          "id": "lightbox-shared-component",
+          "criterion": "在 /work 列表页、系列详情页、首页精选预览图三处点击照片，打开的必须是同一个 Lightbox 组件，而不是各页面各自实现一套。",
+          "weight": 5,
+          "score": 0,
+          "score_notes": "首页精选卡片用 <Link> 直接跳转系列详情页，未调用 openLightbox()；annotator-verify.mjs 与 tests/e2e/structural-baseline.spec.ts 均复现该缺陷，/work 与系列页入口正常。",
+          "constraint_ref": "task.md#page-structure",
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "分别从这 3 个入口打开灯箱，断言每次出现的都是同一套 DOM 结构（同一 test-id/根节点），且关闭/上一张/下一张控件均存在。"
+          },
+          "evidence_required": "从 /work 网格、系列详情页、首页精选图三个入口依次打开灯箱的操作记录/截图，以及 tests/e2e/structural-baseline.spec.ts 对应用例的通过/失败结果（含失败时的 DOM 结构差异说明）。"
+        },
+        {
+          "id": "filter-ui-exists",
+          "criterion": "/work 页面提供恰好对应 3 个真实分类（肖像/风光/牧野）的筛选控件，外加一个「全部」选项。",
+          "weight": 5,
+          "score": 5,
+          "score_notes": "筛选 UI（role=group，4 个分类按钮，aria-pressed）存在且行为正确。",
+          "constraint_ref": "task.md#page-structure",
+          "is_trap": false,
+          "requires_browser_verification": false,
+          "grader_spec": {
+            "type": "dom_assertion",
+            "assertion": "筛选控件的选项集合等于 ['all','portrait','landscape','pastoral']（标签与 mock-data/photos.json 中的分类做不区分大小写的匹配）。"
+          },
+          "evidence_required": "筛选控件的 DOM 结构快照（role=group 及各分类按钮的 aria-pressed 状态取值）。"
+        }
+      ]
+    },
+    {
+      "id": "content_integrity",
+      "title": "内容与数据完整性",
+      "points": 10,
+      "achieved_points": 10,
+      "criteria": [
+        {
+          "id": "photo-data-fidelity",
+          "criterion": "应用中任何位置渲染出的每一张照片（id、标题、说明、分类、所属系列）都必须与 mock-data/photos.json 中的条目完全一致；不允许出现虚构的照片、标题或说明文字。",
+          "weight": 6,
+          "score": 6,
+          "score_notes": "/work 渲染的标题与 alt 文本与 mock-data/photos.json 逐项一致。",
+          "constraint_ref": "task.md#不要做的事",
+          "is_trap": false,
+          "requires_browser_verification": false,
+          "grader_spec": {
+            "type": "unit_test",
+            "assertion": "把渲染出的照片数据集（从 DOM data 属性或应用状态中提取）与 mock-data/photos.json 做双向差集比较，差集必须为空。"
+          },
+          "evidence_required": "渲染出的照片数据集与 mock-data/photos.json 的双向差集比较结果（脚本输出或 tests/e2e/content-integrity.spec.ts 报告）。"
+        },
+        {
+          "id": "no-cross-contamination",
+          "criterion": "真实照片只能从 mock-data/photos/ 引用，不得被拷贝进或从 assets/ 提供服务；assets/ 里的参考图也不得被当作正式内容照片渲染出来。",
+          "weight": 4,
+          "score": 4,
+          "score_notes": "页面未加载任何 assets/reference_* 参考图；mock-data/photos/ 下未混入参考图文件。",
+          "constraint_ref": "task.md#不要做的事",
+          "is_trap": false,
+          "requires_browser_verification": false,
+          "grader_spec": {
+            "type": "unit_test",
+            "assertion": "检查构建产物的资源清单，确认没有任何 reference_*.png 被当作内容 <img> 引入；同时检查 mock-data/ 下是否被混入了名为 reference_* 的文件。"
+          },
+          "evidence_required": "构建产物资源清单扫描结果（确认无 reference_*.png 被当作内容图引用），以及 mock-data/ 目录文件清单核对记录。"
+        }
+      ]
+    },
+    {
+      "id": "coupled_constraints",
+      "title": "耦合约束（对应 task.md 约束 #1-7）",
+      "points": 55,
+      "achieved_points": 55,
+      "criteria": [
+        {
+          "id": "filter-state-persistence",
+          "criterion": "在 /work 选中某个分类筛选后进入某个系列详情页，再返回时，之前选中的筛选状态必须保留。",
+          "weight": 7,
+          "score": 7,
+          "score_notes": "牧野筛选 → 进入《高原牧歌》→ 浏览器返回后，筛选状态与 4 张结果均保留。",
+          "constraint_ref": "task.md#约束1",
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "在 /work 选中「牧野」，点击进入某个系列详情页，再点击浏览器后退，断言筛选控件仍显示「牧野」为选中态，且网格只展示牧野分类的照片。"
+          },
+          "evidence_required": "筛选 → 进入系列详情页 → 浏览器返回后的筛选态截图，及 tests/e2e/coupled-constraints.spec.ts 对应用例的断言结果。"
+        },
+        {
+          "id": "lightbox-scoped-navigation",
+          "criterion": "在某个分类筛选激活的状态下，Lightbox 的上一张/下一张导航只应在当前筛选出的照片子集内循环，而不是整个 14 张的完整数据集。",
+          "weight": 10,
+          "score": 10,
+          "score_notes": "灯箱导航严格限定在筛选后的 4 张牧野照片内循环，4 次“下一张”后回到起点，计数器 total 始终为 4。",
+          "constraint_ref": "task.md#约束2",
+          "is_trap": true,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "筛选出「牧野」（4 张），从第一张打开灯箱后连续点击 4 次「下一张」，断言依次访问到的照片 id 恰好是这 4 个牧野 id 的循环，且从未出现肖像/风光的 id；若界面上有计数器，应显示「x / 4」而非「x / 14」。"
+          },
+          "evidence_required": "连续点击「下一张」4 次后的照片 id 序列记录，以及灯箱计数器（x / N）截图或断言输出。"
+        },
+        {
+          "id": "cls-safe-image-loading",
+          "criterion": "照片容器要在图片加载完成之前，就按 photos.json 里记录的宽高预留出正确的显示比例，避免出现布局抖动（CLS）。",
+          "weight": 10,
+          "score": 10,
+          "score_notes": "图片加载前容器已按数据宽高预留比例（延迟 900ms 下占位比例误差 <0.01），加载完成后相邻元素位移 <1px。",
+          "constraint_ref": "task.md#约束3",
+          "is_trap": true,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "把网络限速到 slow-3g，加载 /work，通过 PerformanceObserver 收集网格区域在图片加载期间产生的 layout-shift 记录，断言累计 CLS 分数 < 0.05；并且在图片 load 事件触发之前，断言每个图片容器的宽高比（或其 width/height 属性）与 photos.json 中的记录误差小于 1%。"
+          },
+          "evidence_required": "限速网络下 PerformanceObserver 采集的 layout-shift/CLS 分数记录，以及图片加载前后容器定位框像素差值。"
+        },
+        {
+          "id": "series-page-shared-data-model",
+          "criterion": "系列详情页渲染的照片集合、顺序和说明文字，必须是从 mock-data/photos.json 按 seriesId 筛选派生出来的，不能是另外单独硬编码的一份列表。",
+          "weight": 5,
+          "score": 5,
+          "score_notes": "系列详情页渲染顺序与按 order 字段派生的期望顺序逐项相等。",
+          "constraint_ref": "task.md#约束4",
+          "is_trap": false,
+          "requires_browser_verification": false,
+          "grader_spec": {
+            "type": "unit_test",
+            "assertion": "对每个 seriesId，从 mock-data/photos.json 按 seriesId 筛选、按 order 排序算出期望的照片 id 列表，断言 /work/:seriesId 页面渲染出的 DOM 顺序与其完全一致。"
+          },
+          "evidence_required": "按 seriesId 从 mock-data/photos.json 派生的期望顺序，与系列详情页实际 DOM 渲染顺序的逐项比对结果。"
+        },
+        {
+          "id": "mobile-responsive-switch",
+          "criterion": "在移动端视口宽度下，/work 页要从多列瀑布流切换为单列，Lightbox 的说明文字面板要从侧边浮层切换为底部条，与 assets/reference_work_mobile.png 保持一致。",
+          "weight": 8,
+          "score": 8,
+          "score_notes": "390px 视口下单列网格、汉堡菜单可见；灯箱说明区落到图片下方而非侧栏。",
+          "constraint_ref": "task.md#约束5",
+          "is_trap": true,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "把视口设为 390x844，加载 /work，断言网格各项的定位框呈单列排布（各项的 x 坐标在容差范围内一致）；打开灯箱，断言说明文字元素的定位框贴在视口底部而非侧边。"
+          },
+          "evidence_required": "390px 视口下网格单列排布与灯箱说明区位置的截图，以及各元素定位框坐标记录。"
+        },
+        {
+          "id": "offline-fonts-no-cdn-requests",
+          "criterion": "页面加载期间不应有任何网络请求指向 fonts.googleapis.com 或 fonts.gstatic.com；Playfair Display 与 Inter 必须从 assets/fonts/ 下的本地文件加载。",
+          "weight": 10,
+          "score": 10,
+          "score_notes": "全站访问期间零次 googleapis/gstatic 请求；本地 /fonts/*.woff2 请求 ≥2 次。",
+          "constraint_ref": "task.md#约束6",
+          "is_trap": true,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "屏蔽对 *.googleapis.com 和 *.gstatic.com 的网络访问，记录每个路由冷加载期间的全部网络请求，断言页面仍能正常渲染并使用正确字体（document.fonts 中的条目均指向本地 woff2 URL），且没有任何请求尝试访问被屏蔽的域名。"
+          },
+          "evidence_required": "屏蔽 googleapis.com/gstatic.com 后的全站网络请求日志，以及 document.fonts 加载来源清单（均为本地 woff2）。"
+        },
+        {
+          "id": "contact-form-states",
+          "criterion": "联系表单要在校验不通过时给出行内错误并禁用提交，在提交成功后展示一个明确区分于表单本身的成功态。",
+          "weight": 5,
+          "score": 5,
+          "score_notes": "空值禁用提交、非法邮箱行内报错、合法提交后展示成功态，三段状态均验证通过。",
+          "constraint_ref": "task.md#约束7",
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "playwright_assertion",
+            "assertion": "留空直接提交，断言必填字段出现行内错误提示，且提交被禁用或被阻止；随后填入合法内容并提交，断言出现替换或覆盖原表单的成功态元素。"
+          },
+          "evidence_required": "空值禁用提交、非法邮箱行内错误、合法提交后成功态三个阶段的截图或 Playwright 断言记录。"
+        }
+      ]
+    },
+    {
+      "id": "visual_fidelity",
+      "title": "视觉还原度",
+      "points": 15,
+      "achieved_points": 12.5,
+      "criteria": [
+        {
+          "id": "desktop-visual-match",
+          "criterion": "首页、/work、系列详情页、Lightbox 的桌面端截图，在布局结构、间距节奏与暗色+金色的编辑感风格上，要与对应的 assets/reference_*_desktop.png 相符。",
+          "weight": 8,
+          "score": 6.5,
+          "score_notes": "Work/Series 两个状态结构还原扎实（真瀑布流、图文交替+引言插入节奏对齐参考图）；Home 存在已确认的文字叠图清晰度问题；Lightbox 结构性偏离最明显——背板 94% 不透明几乎遮住背景网格，说明文字从图片下方变为固定 300px 侧栏。",
+          "constraint_ref": "task.md#视觉设计",
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "screenshot_review",
+            "assertion": "把 target_states.md 里状态 A/B/C/D 的截图分别对照 reference_home_desktop.png、reference_work_desktop.png、reference_series_desktop.png、reference_lightbox_desktop.png，评估结构/布局相似度；不要求像素级精确匹配。"
+          },
+          "evidence_required": "target_states.md 状态 A/B/C/D 的桌面端截图（screenshots/sota_state_*.png）与对应 assets/reference_*_desktop.png 的人工比对记录（结构/布局相似度评语）。"
+        },
+        {
+          "id": "mobile-visual-match",
+          "criterion": "/work 页的移动端截图要与 assets/reference_work_mobile.png 展示的响应式变化相符。",
+          "weight": 4,
+          "score": 3.5,
+          "score_notes": "单列瀑布流、汉堡菜单、标题/分类文字位于图片下方均与参考图一致；筛选栏“牧野”标签在 390px 下被裁到边缘、无可见横向滚动提示，属次要打磨问题。",
+          "constraint_ref": "task.md#约束5",
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "screenshot_review",
+            "assertion": "把 target_states.md 里状态 E 的截图对照 reference_work_mobile.png，评估结构相似度。"
+          },
+          "evidence_required": "target_states.md 状态 E 的移动端截图与 assets/reference_work_mobile.png 的人工比对记录。"
+        },
+        {
+          "id": "editorial-tone-consistency",
+          "criterion": "系列页的点题引言、图片说明，以及关于/联系页的文案，语气要符合一本严肃摄影作品集的编辑腔调，不能读起来像是通用占位文本。",
+          "weight": 3,
+          "score": 2.5,
+          "score_notes": "About 页与 footer 文案的编辑腔调与 mock-data 原始 caption 措辞高度一致；Contact 页“让我们聊聊你的计划”略偏口语化，与全站克制文学腔有轻微落差，但非通用占位文本。",
+          "constraint_ref": "task.md#视觉设计",
+          "is_trap": false,
+          "requires_browser_verification": false,
+          "grader_spec": {
+            "type": "llm_judge",
+            "assertion": "给定 /about、/contact 以及某个系列引言的渲染文本，判断其语气措辞是否与 mock-data/photos.json 中原有说明文字的编辑/艺术摄影腔调保持一致。"
+          },
+          "evidence_required": "About/Contact/系列引言渲染文本原文，以及与 mock-data/photos.json 原始文案语气的对比说明。"
+        }
+      ]
+    },
+    {
+      "id": "overall_impression",
+      "title": "总体印象",
+      "points": 5,
+      "achieved_points": 4,
+      "criteria": [
+        {
+          "id": "overall-craft",
+          "criterion": "整体来看，这个站点要让人感觉是一个连贯、专业完成的摄影师作品集，而不是几个互不相干的页面拼在一起。",
+          "weight": 5,
+          "score": 4,
+          "score_notes": "黑金视觉系统、Header/Footer/Lightbox 全局共享、数据流统一，整体阅读体验连贯专业；扣分来自首页灯箱缺陷、Lightbox 两处结构偏离，以及首图未压缩导致的加载延迟。",
+          "constraint_ref": null,
+          "is_trap": false,
+          "requires_browser_verification": true,
+          "grader_spec": {
+            "type": "manual_review",
+            "assertion": "人工评审完整浏览整个构建产物，对整体连贯性与完成度打分；仅作为达标线之外的加分/tie-breaker项，不计入及格门槛。"
+          },
+          "evidence_required": "annotator 完整走查构建产物后的书面评语，说明整体连贯性/完成度打分依据。"
+        }
+      ]
+    }
+  ]
+}
