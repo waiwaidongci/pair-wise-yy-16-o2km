@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Series — Lin Ye Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <div data-header></div>
+
+  <main class="wrap">
+    <section class="section" style="padding-bottom:0">
+      <h1>Series</h1>
+      <p class="muted">Covers are recomputed from the first selected photo in canonical order after
+        every confirmed merge. Reorder while offline and the new sequence merges by baseline.</p>
+    </section>
+
+    <section class="section">
+      <div id="series-grid" class="series-grid"></div>
+    </section>
+
+    <section class="section" id="series-detail" hidden></section>
+
+    <div id="sync-host"></div>
+  </main>
+
+  <div data-footer></div>
+  <script type="module" src="js/pages/series.js"></script>
+</body>
+</html>

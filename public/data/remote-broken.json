@@ -1,0 +1,50 @@
+{
+  "_comment": "Deliberately malformed station catalog: landscape-03 is missing and an unknown photo exists. Structural validation rejects the merge so the app must roll back to the original touring draft and allow a retry.",
+  "categories": [
+    { "id": "portrait", "label": "Portrait", "labelZh": "肖像" },
+    { "id": "landscape", "label": "Landscape", "labelZh": "风光" },
+    { "id": "pastoral", "label": "Pastoral", "labelZh": "牧野" }
+  ],
+  "series": [
+    {
+      "id": "gaze",
+      "title": "Gaze",
+      "titleZh": "凝视",
+      "category": "portrait",
+      "summary": "A series of black-and-white portrait close-ups.",
+      "photoIds": ["portrait-01", "portrait-02", "portrait-03", "portrait-04", "portrait-05"]
+    },
+    {
+      "id": "wilderness",
+      "title": "Wilderness",
+      "titleZh": "无人之境",
+      "category": "landscape",
+      "summary": "Ridges, meadows and mist on uninhabited high ground.",
+      "photoIds": ["landscape-01", "landscape-02", "landscape-04", "landscape-05", "landscape-99"]
+    },
+    {
+      "id": "highland-pastoral",
+      "title": "Highland Pastoral",
+      "titleZh": "高原牧歌",
+      "category": "pastoral",
+      "summary": "The coexistence of pastures, cattle and people on the plateau.",
+      "photoIds": ["pastoral-01", "pastoral-02", "pastoral-03", "pastoral-04"]
+    }
+  ],
+  "photos": [
+    { "id": "portrait-01", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-01.jpg", "title": "Lowered", "titleZh": "低垂", "altText": "", "caption": "c", "captionZh": "", "width": 4067, "height": 6000, "order": 1, "selected": true },
+    { "id": "portrait-02", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-02.jpg", "title": "Veil", "titleZh": "遮蔽", "altText": "", "caption": "c", "captionZh": "", "width": 4000, "height": 6000, "order": 2, "selected": true },
+    { "id": "portrait-03", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-03.jpg", "title": "Held Breath", "titleZh": "屏息", "altText": "", "caption": "c", "captionZh": "", "width": 3456, "height": 5184, "order": 3, "selected": true },
+    { "id": "portrait-04", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-04.jpg", "title": "Sidelight", "titleZh": "侧光", "altText": "", "caption": "c", "captionZh": "", "width": 5152, "height": 7728, "order": 4, "selected": true },
+    { "id": "portrait-05", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-05.jpg", "title": "Wide Open", "titleZh": "睁大", "altText": "", "caption": "c", "captionZh": "", "width": 2832, "height": 4256, "order": 5, "selected": true },
+    { "id": "landscape-01", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-01.jpg", "title": "Wildflower Slope", "titleZh": "野花坡", "altText": "", "caption": "c", "captionZh": "", "width": 5404, "height": 3584, "order": 1, "selected": true },
+    { "id": "landscape-02", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-02.jpg", "title": "Golden Plain", "titleZh": "金色平原", "altText": "", "caption": "c", "captionZh": "", "width": 3500, "height": 2334, "order": 2, "selected": true },
+    { "id": "landscape-04", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-04.jpg", "title": "Ridge Line", "titleZh": "山脊线", "altText": "", "caption": "c", "captionZh": "", "width": 3712, "height": 5568, "order": 4, "selected": true },
+    { "id": "landscape-05", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-05.jpg", "title": "Misty Valley", "titleZh": "雾谷", "altText": "", "caption": "c", "captionZh": "", "width": 4742, "height": 3162, "order": 5, "selected": true },
+    { "id": "landscape-99", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-01.jpg", "title": "Ghost Frame", "titleZh": "空帧", "altText": "", "caption": "c", "captionZh": "", "width": 100, "height": 100, "order": 3, "selected": true },
+    { "id": "pastoral-01", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-01.jpg", "title": "Lone Bull and Cabin", "titleZh": "独牛与木屋", "altText": "", "caption": "c", "captionZh": "", "width": 10250, "height": 6834, "order": 1, "selected": true },
+    { "id": "pastoral-02", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-02.jpg", "title": "Herd on the Slope", "titleZh": "坡地牛群", "altText": "", "caption": "c", "captionZh": "", "width": 5250, "height": 3500, "order": 2, "selected": true },
+    { "id": "pastoral-03", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-03.jpg", "title": "Rest Beneath the Snows", "titleZh": "雪山下的歇息", "altText": "", "caption": "c", "captionZh": "", "width": 5168, "height": 3448, "order": 3, "selected": true },
+    { "id": "pastoral-04", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-04.jpg", "title": "Xinjiang Pasture", "titleZh": "新疆牧场", "altText": "", "caption": "c", "captionZh": "", "width": 5184, "height": 3888, "order": 4, "selected": true }
+  ]
+}

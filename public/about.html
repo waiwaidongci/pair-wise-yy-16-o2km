@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Lin Ye Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <div data-header></div>
+
+  <main class="wrap section">
+    <h1>About the workflow</h1>
+    <div class="prose">
+      <p><strong>Lin Ye Studio</strong> tours a photographic exhibition across venues where the
+        network is unreliable or deliberately switched off. The selection desk — which prints,
+        which photo opens a series, what order a room reads in — keeps moving during install week.
+        This site is built around that constraint.</p>
+
+      <h2>One catalog, every page</h2>
+      <p>Home, Works, Series, About and Contact all read the same catalog object. Filter the works
+        down to a series, follow a link to another page and come back: the range is persisted, and
+        the lightbox only ever walks the photographs in the current result set.</p>
+
+      <h2>Merge by photo baseline</h2>
+      <p>When the link returns, the venue copy is merged against the touring draft that originally
+        left the station. Edits made on only one side fast-forward automatically. When both sides
+        edited the same photograph differently, neither overwrites the other: both values stay as
+        <em>candidates</em> until a human picks one. If the fetch or the structural merge fails,
+        nothing is committed — the desk returns to the original draft and retries from there.</p>
+
+      <h2>Recompute together</h2>
+      <p>Only after a merge is confirmed do the derived views update in one pass: series covers
+        (the first selected photograph in canonical order), the lightbox sequence, and every
+        filtered result set.</p>
+
+      <h2>Fully local assets</h2>
+      <p>Photographs, the three typefaces (Playfair Display and Inter) and all scripts are served
+        from the site itself. A service worker precaches the whole portfolio, so the venue laptop
+        works unplugged, and the contact form queues messages until the station link is back.</p>
+
+      <div class="pill-row">
+        <a class="btn" href="works.html">See the works</a>
+        <a class="btn btn--ghost" href="series.html">Open the sync desk</a>
+      </div>
+    </div>
+  </main>
+
+  <div data-footer></div>
+  <script type="module" src="js/pages/about.js"></script>
+</body>
+</html>

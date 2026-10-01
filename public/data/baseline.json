@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "categories": [
+    { "id": "portrait", "label": "Portrait", "labelZh": "肖像" },
+    { "id": "landscape", "label": "Landscape", "labelZh": "风光" },
+    { "id": "pastoral", "label": "Pastoral", "labelZh": "牧野" }
+  ],
+  "series": [
+    {
+      "id": "gaze",
+      "title": "Gaze",
+      "titleZh": "凝视",
+      "category": "portrait",
+      "summary": "A series of black-and-white portrait close-ups that linger on eyes and the texture of skin, probing the line between openness and guard in front of the lens.",
+      "photoIds": ["portrait-01", "portrait-02", "portrait-03", "portrait-04", "portrait-05"]
+    },
+    {
+      "id": "wilderness",
+      "title": "Wilderness",
+      "titleZh": "无人之境",
+      "category": "landscape",
+      "summary": "Ridges, meadows and mist on uninhabited high ground, recording pure terrain under the changing light of the seasons.",
+      "photoIds": ["landscape-01", "landscape-02", "landscape-03", "landscape-04", "landscape-05"]
+    },
+    {
+      "id": "highland-pastoral",
+      "title": "Highland Pastoral",
+      "titleZh": "高原牧歌",
+      "category": "pastoral",
+      "summary": "The coexistence of pastures, cattle and people on the plateau — the daily rhythm of nomadic life.",
+      "photoIds": ["pastoral-01", "pastoral-02", "pastoral-03", "pastoral-04"]
+    }
+  ],
+  "photos": [
+    { "id": "portrait-01", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-01.jpg", "title": "Lowered", "titleZh": "低垂", "altText": "Black-and-white half-face close-up, a woman in profile, eyes and lips in tight crop", "caption": "Light only settles on the eyelids and the line of the lips; the rest is left to shadow.", "captionZh": "光线只落在眼睑与唇线上，其余留给阴影。", "width": 4067, "height": 6000, "order": 1, "selected": true },
+    { "id": "portrait-02", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-02.jpg", "title": "Veil", "titleZh": "遮蔽", "altText": "Black-and-white close-up, a face partly veiled by falling hair", "caption": "Hair sweeps across the forehead like a curtain deliberately left there.", "captionZh": "头发划过额头，像一道刻意留下的帘幕。", "width": 4000, "height": 6000, "order": 2, "selected": true },
+    { "id": "portrait-03", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-03.jpg", "title": "Held Breath", "titleZh": "屏息", "altText": "Black-and-white portrait, short-haired sitter puffing cheeks, lip stud and necklace", "caption": "A deliberate pause, halfway between a smile and none.", "captionZh": "一次刻意的停顿，介于笑与不笑之间。", "width": 3456, "height": 5184, "order": 3, "selected": true },
+    { "id": "portrait-04", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-04.jpg", "title": "Sidelight", "titleZh": "侧光", "altText": "Extreme black-and-white close-up of a single eye and nose bridge in sidelight", "caption": "Sidelight hands the texture of skin over to the shadows to describe.", "captionZh": "侧光把皮肤的纹理交给了阴影去描述。", "width": 5152, "height": 7728, "order": 4, "selected": true },
+    { "id": "portrait-05", "category": "portrait", "seriesId": "gaze", "file": "photos/portrait/portrait-05.jpg", "title": "Wide Open", "titleZh": "睁大", "altText": "Extreme close-up of a curly-haired woman staring straight into the lens, eyes wide", "caption": "The instant of looking into the lens — guard and curiosity arrive together.", "captionZh": "直视镜头的一瞬，防备与好奇同时出现。", "width": 2832, "height": 4256, "order": 5, "selected": true },
+    { "id": "landscape-01", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-01.jpg", "title": "Wildflower Slope", "titleZh": "野花坡", "altText": "Alpine wildflower meadow with snow-capped range in the distance under a deep blue sky", "caption": "A whole hillside belonging only to the wind and flowers not yet named.", "captionZh": "一整片坡地只属于风和还没被命名的野花。", "width": 5404, "height": 3584, "order": 1, "selected": true },
+    { "id": "landscape-02", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-02.jpg", "title": "Golden Plain", "titleZh": "金色平原", "altText": "Golden meadow plain with distant snowy peaks and dramatic cloud cover", "caption": "Low light dyes the grass the colour of metal.", "captionZh": "低角度的光把草地染成了金属色。", "width": 3500, "height": 2334, "order": 2, "selected": true },
+    { "id": "landscape-03", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-03.jpg", "title": "Quiet Mound", "titleZh": "静丘", "altText": "Green grassy mound, an empty frame with no people or animals", "caption": "Where there is no subject, the emptiness itself becomes one.", "captionZh": "没有主体的地方，留白本身成了主体。", "width": 3024, "height": 4032, "order": 3, "selected": true },
+    { "id": "landscape-04", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-04.jpg", "title": "Ridge Line", "titleZh": "山脊线", "altText": "Panorama of layered mountain ranges with exposed rock in the foreground", "caption": "Each ridge is paler than the one before, until it vanishes into mist.", "captionZh": "每一层山脊都比前一层更淡，直到消失在雾里。", "width": 3712, "height": 5568, "order": 4, "selected": true },
+    { "id": "landscape-05", "category": "landscape", "seriesId": "wilderness", "file": "photos/landscape/landscape-05.jpg", "title": "Misty Valley", "titleZh": "雾谷", "altText": "Misty forested valley in heavy, sombre tones", "caption": "Mist takes back the valley's edges, leaving only outlines.", "captionZh": "雾把山谷的边界都收走了，只剩下轮廓。", "width": 4742, "height": 3162, "order": 5, "selected": true },
+    { "id": "pastoral-01", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-01.jpg", "title": "Lone Bull and Cabin", "titleZh": "独牛与木屋", "altText": "Alpine meadow, a single bull grazing beside a wooden cabin, conifer forest beyond", "caption": "The cabin is quieter than the bull; the bull is quieter than the wind.", "captionZh": "木屋比牛安静，牛比风安静。", "width": 10250, "height": 6834, "order": 1, "selected": true },
+    { "id": "pastoral-02", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-02.jpg", "title": "Herd on the Slope", "titleZh": "坡地牛群", "altText": "White and brown cattle grazing on a green hillside before rocky peaks", "caption": "The slope arranges every animal into a different posture.", "captionZh": "坡度让每一头牛都站成了不同的姿势。", "width": 5250, "height": 3500, "order": 2, "selected": true },
+    { "id": "pastoral-03", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-03.jpg", "title": "Rest Beneath the Snows", "titleZh": "雪山下的歇息", "altText": "Cattle resting on highland grassland with snowy mountains in the distance", "caption": "They take the snow range as a backdrop and lie down without a care.", "captionZh": "它们把雪山当作背景板，毫不在意地趴下了。", "width": 5168, "height": 3448, "order": 3, "selected": true },
+    { "id": "pastoral-04", "category": "pastoral", "seriesId": "highland-pastoral", "file": "photos/pastoral/pastoral-04.jpg", "title": "Xinjiang Pasture", "titleZh": "新疆牧场", "altText": "A large herd grazing on a vast Xinjiang steppe with misty distant ranges", "caption": "Cattle spread across the grassland like a handful of scattered seed.", "captionZh": "牛群铺满了整片草原，像撒出去的一把种子。", "width": 5184, "height": 3888, "order": 4, "selected": true }
+  ]
+}

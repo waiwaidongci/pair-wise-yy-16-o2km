@@ -1,0 +1,13 @@
+{
+  "name": "Lin Ye Studio — Touring Exhibition",
+  "short_name": "Lin Ye",
+  "description": "Offline photography portfolio with baseline-based sync.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#1c1b18",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"
+    }
+  ]
+}

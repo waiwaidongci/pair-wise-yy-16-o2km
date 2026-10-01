@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Works — Lin Ye Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <div data-header></div>
+
+  <main class="wrap">
+    <section class="section" style="padding-bottom:0">
+      <h1>Works</h1>
+      <p class="muted">Filter into a category or series, leave the page and come back — the scope is
+        retained. The lightbox only walks the current result set.</p>
+      <div id="filterbar"></div>
+      <div id="scope-banner"></div>
+    </section>
+
+    <section class="section">
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem">
+        <h2 style="margin:0" data-result-title>All works</h2>
+        <span class="muted" style="font-size:.88rem" data-result-count></span>
+        <label class="switch-label" style="margin-left:auto">
+          <input type="checkbox" id="edit-mode"> Offline selection desk
+        </label>
+      </div>
+      <div id="photo-grid" class="photo-grid"></div>
+      <p id="empty" class="muted" hidden>No photographs match the current scope.</p>
+    </section>
+  </main>
+
+  <div data-footer></div>
+  <script type="module" src="js/pages/works.js"></script>
+</body>
+</html>

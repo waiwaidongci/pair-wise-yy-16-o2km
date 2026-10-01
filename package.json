@@ -1,0 +1,14 @@
+{
+  "name": "linye-offline-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline photography portfolio with per-photo baseline three-way sync.",
+  "scripts": {
+    "start": "python3 -m http.server 8901 --directory public",
+    "sw": "node scripts/gen-sw.mjs",
+    "test": "node --test test/merge.test.mjs",
+    "test:e2e": "node test/e2e.mjs",
+    "build": "node scripts/gen-sw.mjs"
+  }
+}

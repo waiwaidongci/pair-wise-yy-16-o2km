@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Lin Ye Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <div data-header></div>
+
+  <main class="wrap section">
+    <h1>Contact</h1>
+    <p class="muted" style="max-width:52ch">Booking, print sales and press. At a disconnected venue the
+      message is validated and queued on this device; it sends automatically once the station link returns.</p>
+
+    <form class="form-card" id="contact-form" novalidate>
+      <div class="field" data-field="name">
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2">
+        <span class="err" data-err="name"></span>
+      </div>
+      <div class="field" data-field="email">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
+        <span class="err" data-err="email"></span>
+      </div>
+      <div class="field" data-field="topic">
+        <label for="f-topic">Topic</label>
+        <select id="f-topic" name="topic" required>
+          <option value="">Choose a topic…</option>
+          <option>Exhibition booking</option>
+          <option>Print sale</option>
+          <option>Press / interview</option>
+          <option>Other</option>
+        </select>
+        <span class="err" data-err="topic"></span>
+      </div>
+      <div class="field" data-field="message">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" rows="5" required minlength="10"></textarea>
+        <span class="err" data-err="message"></span>
+      </div>
+      <button class="btn btn--accent" type="submit">Send message</button>
+      <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+    </form>
+
+    <p class="muted" style="margin-top:1.2rem;font-size:.85rem" id="queue-status"></p>
+  </main>
+
+  <div data-footer></div>
+  <script type="module" src="js/pages/contact.js"></script>
+</body>
+</html>
