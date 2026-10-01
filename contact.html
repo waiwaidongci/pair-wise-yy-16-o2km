@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>联系 · Lumina</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="contact">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html">Lumina<em>.</em></a>
+      <nav class="nav" data-nav></nav>
+      <div class="nav-actions">
+        <button class="net-pill" data-net><span class="dot"></span>在线</button>
+        <button class="sync-btn" data-sync-btn>同步中心</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="菜单"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">联系</p>
+          <h1 class="title" style="margin-bottom:18px">约片与巡展合作</h1>
+          <p class="lead">欢迎邮件或留言，通常在 48 小时内回复。</p>
+          <p>无论是肖像约拍、系列授权还是巡展合作，都可以通过下方表单告诉我。表单在离线状态下也能填写，联网后会给出提交反馈。</p>
+          <div class="lines">
+            <div><span class="k">邮箱</span>hello@lumina.studio</div>
+            <div><span class="k">工作室</span>高原驻点 · 随季节移动</div>
+            <div><span class="k">Instagram</span>@lumina.field</div>
+          </div>
+        </div>
+
+        <form class="form" data-contact-form novalidate>
+          <div class="field">
+            <label for="name">姓名</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="您的姓名" />
+            <div class="err"></div>
+          </div>
+          <div class="field">
+            <label for="email">邮箱</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+            <div class="err"></div>
+          </div>
+          <div class="field">
+            <label for="subject">主题</label>
+            <select id="subject" name="subject">
+              <option value="约拍">肖像约拍</option>
+              <option value="授权">作品授权</option>
+              <option value="巡展">巡展合作</option>
+              <option value="其他">其他</option>
+            </select>
+            <div class="err"></div>
+          </div>
+          <div class="field">
+            <label for="message">留言</label>
+            <textarea id="message" name="message" placeholder="想对我说的话…"></textarea>
+            <div class="err"></div>
+          </div>
+          <button class="btn btn-primary" type="submit">发送留言</button>
+          <div class="form-feedback" data-form-feedback role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand">Lumina<em>.</em></div>
+      <div class="links">
+        <a href="index.html">首页</a><a href="works.html">作品</a><a href="series.html">系列</a><a href="about.html">关于</a><a href="contact.html">联系</a>
+      </div>
+      <div class="note">本地字体 · 离线可用 · 按照片基线合并</div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" data-sync-overlay>
+    <div class="modal">
+      <div class="modal-head">
+        <h3>同步中心 · 断网改片合并</h3>
+        <button class="x" data-sync-close aria-label="关闭">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="sync-banner" data-sync-banner></div>
+        <div class="sync-status">
+          <div class="box"><div class="k">本地草稿改动</div><div class="v" data-stat-dirty>0</div><div class="s">张照片</div></div>
+          <div class="box"><div class="k">工作室在线改动</div><div class="v" data-stat-remote>0</div><div class="s">张照片</div></div>
+          <div class="box"><div class="k">已同步 / 状态</div><div class="v" data-stat-syncs>0</div><div class="s" data-stat-online>在线</div></div>
+        </div>
+        <div data-conflicts></div>
+        <div class="sync-section">
+          <h4>演示与操作</h4>
+          <div class="sync-actions">
+            <button class="mini-btn" data-btn-offline>模拟断网改片</button>
+            <button class="mini-btn" data-btn-remote>模拟工作室改片</button>
+            <button class="mini-btn danger" data-btn-simfail>模拟中断：关</button>
+            <button class="mini-btn primary" data-btn-sync>开始同步 / 合并</button>
+            <button class="mini-btn primary" data-btn-confirm disabled>确认合并</button>
+            <button class="mini-btn" data-btn-reset>重置草稿</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

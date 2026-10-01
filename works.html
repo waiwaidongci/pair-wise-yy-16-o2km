@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品 · Lumina</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="works">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html">Lumina<em>.</em></a>
+      <nav class="nav" data-nav></nav>
+      <div class="nav-actions">
+        <button class="net-pill" data-net><span class="dot"></span>在线</button>
+        <button class="sync-btn" data-sync-btn>同步中心</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="菜单"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">作品</p>
+            <h1 class="title">全部作品</h1>
+            <p class="sub">按分类与系列筛选；进入系列再返回，范围仍保留。点击照片打开灯箱，灯箱只在当前结果内切换。</p>
+          </div>
+        </div>
+
+        <div class="edit-bar" data-edit-bar>
+          <span class="lbl">离线改片</span>
+          <span class="sp">·</span>
+          <span data-edit-hint>切换到离线模式后可改片。</span>
+        </div>
+
+        <p class="eyebrow" style="margin-bottom:8px">分类</p>
+        <div class="filters" data-filter-cat></div>
+        <p class="eyebrow" style="margin-bottom:8px">系列</p>
+        <div class="filters" data-filter-series></div>
+        <div class="range-note" data-range-note style="display:none"></div>
+
+        <div class="grid" data-works-grid></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand">Lumina<em>.</em></div>
+      <div class="links">
+        <a href="index.html">首页</a><a href="works.html">作品</a><a href="series.html">系列</a><a href="about.html">关于</a><a href="contact.html">联系</a>
+      </div>
+      <div class="note">本地字体 · 离线可用 · 按照片基线合并</div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" data-sync-overlay>
+    <div class="modal">
+      <div class="modal-head">
+        <h3>同步中心 · 断网改片合并</h3>
+        <button class="x" data-sync-close aria-label="关闭">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="sync-banner" data-sync-banner></div>
+        <div class="sync-status">
+          <div class="box"><div class="k">本地草稿改动</div><div class="v" data-stat-dirty>0</div><div class="s">张照片</div></div>
+          <div class="box"><div class="k">工作室在线改动</div><div class="v" data-stat-remote>0</div><div class="s">张照片</div></div>
+          <div class="box"><div class="k">已同步 / 状态</div><div class="v" data-stat-syncs>0</div><div class="s" data-stat-online>在线</div></div>
+        </div>
+        <div data-conflicts></div>
+        <div class="sync-section">
+          <h4>演示与操作</h4>
+          <div class="sync-actions">
+            <button class="mini-btn" data-btn-offline>模拟断网改片</button>
+            <button class="mini-btn" data-btn-remote>模拟工作室改片</button>
+            <button class="mini-btn danger" data-btn-simfail>模拟中断：关</button>
+            <button class="mini-btn primary" data-btn-sync>开始同步 / 合并</button>
+            <button class="mini-btn primary" data-btn-confirm disabled>确认合并</button>
+            <button class="mini-btn" data-btn-reset>重置草稿</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/works.js"></script>
+</body>
+</html>

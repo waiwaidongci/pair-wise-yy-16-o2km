@@ -1,0 +1,200 @@
+{
+  "categories": [
+    { "id": "portrait", "label": "肖像" },
+    { "id": "landscape", "label": "风光" },
+    { "id": "pastoral", "label": "牧野" }
+  ],
+  "series": [
+    {
+      "id": "gaze",
+      "title": "凝视",
+      "category": "portrait",
+      "summary": "一组黑白肖像特写，聚焦眼神与皮肤纹理，探讨镜头前的坦露与防备。",
+      "photoIds": ["portrait-01", "portrait-02", "portrait-03", "portrait-04", "portrait-05"]
+    },
+    {
+      "id": "wilderness",
+      "title": "无人之境",
+      "category": "landscape",
+      "summary": "高海拔无人区的山脊、草甸与雾气，记录纯粹地貌在四季光线下的变化。",
+      "photoIds": ["landscape-01", "landscape-02", "landscape-03", "landscape-04", "landscape-05"]
+    },
+    {
+      "id": "highland-pastoral",
+      "title": "高原牧歌",
+      "category": "pastoral",
+      "summary": "牧场、牛群与人在高原上的共生关系，记录游牧生活的日常节奏。",
+      "photoIds": ["pastoral-01", "pastoral-02", "pastoral-03", "pastoral-04"]
+    }
+  ],
+  "photos": [
+    {
+      "id": "portrait-01",
+      "category": "portrait",
+      "seriesId": "gaze",
+      "file": "photos/portrait/portrait-01.jpg",
+      "title": "低垂",
+      "altText": "黑白半脸特写，女性侧脸，眼部与嘴唇局部特写",
+      "caption": "光线只落在眼睑与唇线上，其余留给阴影。",
+      "width": 4067,
+      "height": 6000,
+      "order": 1
+    },
+    {
+      "id": "portrait-02",
+      "category": "portrait",
+      "seriesId": "gaze",
+      "file": "photos/portrait/portrait-02.jpg",
+      "title": "遮蔽",
+      "altText": "黑白特写，女性面部被垂落的头发部分遮挡",
+      "caption": "头发划过额头，像一道刻意留下的帘幕。",
+      "width": 4000,
+      "height": 6000,
+      "order": 2
+    },
+    {
+      "id": "portrait-03",
+      "category": "portrait",
+      "seriesId": "gaze",
+      "file": "photos/portrait/portrait-03.jpg",
+      "title": "屏息",
+      "altText": "黑白肖像，短发人物鼓起脸颊，佩戴唇钉与项链",
+      "caption": "一次刻意的停顿，介于笑与不笑之间。",
+      "width": 3456,
+      "height": 5184,
+      "order": 3
+    },
+    {
+      "id": "portrait-04",
+      "category": "portrait",
+      "seriesId": "gaze",
+      "file": "photos/portrait/portrait-04.jpg",
+      "title": "侧光",
+      "altText": "黑白极近特写，单眼与鼻梁侧光",
+      "caption": "侧光把皮肤的纹理交给了阴影去描述。",
+      "width": 5152,
+      "height": 7728,
+      "order": 4
+    },
+    {
+      "id": "portrait-05",
+      "category": "portrait",
+      "seriesId": "gaze",
+      "file": "photos/portrait/portrait-05.jpg",
+      "title": "睁大",
+      "altText": "黑白极近特写，卷发女性睁大双眼直视镜头",
+      "caption": "直视镜头的一瞬，防备与好奇同时出现。",
+      "width": 2832,
+      "height": 4256,
+      "order": 5
+    },
+    {
+      "id": "landscape-01",
+      "category": "landscape",
+      "seriesId": "wilderness",
+      "file": "photos/landscape/landscape-01.jpg",
+      "title": "野花坡",
+      "altText": "高山野花草甸，远景为连绵雪山，天空湛蓝",
+      "caption": "一整片坡地只属于风和还没被命名的野花。",
+      "width": 5404,
+      "height": 3584,
+      "order": 1
+    },
+    {
+      "id": "landscape-02",
+      "category": "landscape",
+      "seriesId": "wilderness",
+      "file": "photos/landscape/landscape-02.jpg",
+      "title": "金色平原",
+      "altText": "金黄色草甸平原，远处雪山与戏剧性云层",
+      "caption": "低角度的光把草地染成了金属色。",
+      "width": 3500,
+      "height": 2334,
+      "order": 2
+    },
+    {
+      "id": "landscape-03",
+      "category": "landscape",
+      "seriesId": "wilderness",
+      "file": "photos/landscape/landscape-03.jpg",
+      "title": "静丘",
+      "altText": "绿色小丘草地，画面空旷无人无动物",
+      "caption": "没有主体的地方，留白本身成了主体。",
+      "width": 3024,
+      "height": 4032,
+      "order": 3
+    },
+    {
+      "id": "landscape-04",
+      "category": "landscape",
+      "seriesId": "wilderness",
+      "file": "photos/landscape/landscape-04.jpg",
+      "title": "山脊线",
+      "altText": "层叠山脉全景，前景为裸露岩石",
+      "caption": "每一层山脊都比前一层更淡，直到消失在雾里。",
+      "width": 3712,
+      "height": 5568,
+      "order": 4
+    },
+    {
+      "id": "landscape-05",
+      "category": "landscape",
+      "seriesId": "wilderness",
+      "file": "photos/landscape/landscape-05.jpg",
+      "title": "雾谷",
+      "altText": "多雾的森林山谷，色调阴郁厚重",
+      "caption": "雾把山谷的边界都收走了，只剩下轮廓。",
+      "width": 4742,
+      "height": 3162,
+      "order": 5
+    },
+    {
+      "id": "pastoral-01",
+      "category": "pastoral",
+      "seriesId": "highland-pastoral",
+      "file": "photos/pastoral/pastoral-01.jpg",
+      "title": "独牛与木屋",
+      "altText": "高山草甸，一头牛在木屋旁独自吃草，远景针叶林",
+      "caption": "木屋比牛安静，牛比风安静。",
+      "width": 10250,
+      "height": 6834,
+      "order": 1
+    },
+    {
+      "id": "pastoral-02",
+      "category": "pastoral",
+      "seriesId": "highland-pastoral",
+      "file": "photos/pastoral/pastoral-02.jpg",
+      "title": "坡地牛群",
+      "altText": "白棕色牛群在山坡绿地上吃草，背景为岩石山体",
+      "caption": "坡度让每一头牛都站成了不同的姿势。",
+      "width": 5250,
+      "height": 3500,
+      "order": 2
+    },
+    {
+      "id": "pastoral-03",
+      "category": "pastoral",
+      "seriesId": "highland-pastoral",
+      "file": "photos/pastoral/pastoral-03.jpg",
+      "title": "雪山下的歇息",
+      "altText": "牛群在高原草地上休息，远处为雪山",
+      "caption": "它们把雪山当作背景板，毫不在意地趴下了。",
+      "width": 5168,
+      "height": 3448,
+      "order": 3
+    },
+    {
+      "id": "pastoral-04",
+      "category": "pastoral",
+      "seriesId": "highland-pastoral",
+      "file": "photos/pastoral/pastoral-04.jpg",
+      "title": "新疆牧场",
+      "altText": "辽阔新疆草原上放牧的大群牛群，远山带雾",
+      "caption": "牛群铺满了整片草原，像撒出去的一把种子。",
+      "width": 5184,
+      "height": 3888,
+      "order": 4
+    }
+  ]
+}
